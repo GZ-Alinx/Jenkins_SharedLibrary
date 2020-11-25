@@ -1,0 +1,21 @@
+// 推荐使用openjdk
+openjdk安装
+
+rpm -qa |grep java
+rpm -qa |grep jdk
+rpm -qa |grep gcj
+
+// 查看可安装版本
+yum list |grep jdk
+yum install -y java-11-openjdk.x86_64
+
+// 自动引入不需要多余配置，将自己安装jdk环境删除即可
+
+
+// 环境检查
+which java
+java -version
+
+
+
+jenkins中操作  直接写入 which java 的路径即可

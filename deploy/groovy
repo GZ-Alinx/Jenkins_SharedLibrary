@@ -1,0 +1,11 @@
+1. 下载二进制包
+http://www.groovy-lang.org/download.html
+
+直接下载解压 添加到全局变量即可直接使用
+
+vim ~/.bash_profile
+GROOVY=/usr/local/groovy-3.0.2/
+PATH=$PATH:$HOME/bin:$GRADLE/bin:$NPM/bin:$GROOVY/bin
+
+export PATH
+
