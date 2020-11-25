@@ -1,0 +1,10 @@
+#!/bin/expect
+
+
+set timeout 30
+spawn command
+expect "输入提示:"
+send "输入内容\r"
+expect "输入提示:"
+send "内容"
+interact

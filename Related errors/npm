@@ -27,7 +27,7 @@ source ~/.bash_profile
 
 使用前的配置
 
-
+jenkins 构建报错 env
 npm install -g npm
 ln -sv /usr/local/node-v10.14.1-linux-x64/bin/node /usr/bin/node
 
@@ -66,6 +66,43 @@ Jeninsfile中调用
                 	}
                 }
 
+
+
+
+-----------
+执行 npm install
+遇到问题
+make: g++: Command not found
+
+解决：yum install -y make gcc-c++
+重新执行 npm install
+
+
+-----------
+遇到问题
+added 72 packages from 94 contributors and audited 1164 packages in 55.837s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 89 vulnerabilities (39 low, 13 moderate, 35 high, 2 critical)
+  run `npm audit fix` to fix them, or `npm audit` for details
+
+ 发现漏洞89个 运行 npm audit fix 修复
+ added 2 packages from 1 contributor and updated 1 package in 3.439s
+
+
+
+接着问题
+     12 packages are looking for funding
+       run `npm fund` for details
+
+     fixed 5 of 89 vulnerabilities in 1164 scanned packages
+       20 vulnerabilities required manual review and could not be updated
+       12 package updates for 64 vulnerabilities involved breaking changes
+       (use `npm audit fix --force` to install breaking changes; or refer to `npm audit` for steps to fix these manually)
+
+     解决： npm audit fix --force 安装重大更改
 
 
 

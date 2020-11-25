@@ -1,0 +1,45 @@
+gradle构建遇到库文件版本问题
+
+        linux/centos中运行程序出现'GLIBCXX_3.4.21' not found
+        linux/centos中运行程序出现'GLIBCXX_3.4.21' not found
+
+            首先检查gcc版本
+            升级gcc到5.4
+            解决'GLIBCXX_3.4.21' not found
+
+        首先检查gcc版本
+
+        gcc -v
+
+
+        我的版本是4.8*，需要升级
+        升级gcc到5.4
+
+        安装所需工具：
+
+        yum groupinstall "Development Tools"
+        yum install glibc-static libstdc++-static
+
+
+        下载gcc：http://ftp.tsukuba.wide.ad.jp/software/gcc/releases/
+
+        tar -xvf gcc-5.4.0.tar.bz2
+        cd gcc-5.4.0
+        ./contrib/download_prerequisites   //  这一步骤提示异常，可以在运行中查看下载地址 手动下载后进行编译安装
+        mkdir build
+        cd build
+        ../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib
+        make && make install
+
+        安装完了重启
+        解决’GLIBCXX_3.4.21’ not found
+
+        cp /usr/local/lib64/libstdc++.so.6.0.21 /lib64
+        cd /lib64
+        rm -rf libstdc++.so.6
+        ln -s libstdc++.so.6.0.21 libstdc++.so.6
+
+
+        执行以下命令来查看’GLIBCXX_3.4.21’
+
+        strings /lib64/libstdc++.so.6 | grep GLIBC
